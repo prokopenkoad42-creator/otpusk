@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Эль-Аламейн 2026</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Эль-Аламейн">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Личный план поездки">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* ============================================================
+   Эль-Аламейн 2026 — «документ, который носят с собой»
+   Палитра: средиземноморская отмель + известняк + выгоревшая охра
+   Шрифты: Instrument Serif (акцент) / Public Sans (текст) / JetBrains Mono (данные)
+   ============================================================ */
+:root{
+  color-scheme:light dark;
+  --ground:#F1F3F0;
+  --surface:#FFFFFF;
+  --sunken:#E5E9E5;
+  --line:#D5DBD6;
+  --line-soft:#E4E9E5;
+
+  --ink:#0B1F26;
+  --ink-2:#4A6068;
+  --ink-3:#7B9198;
+
+  --sea:#00707F;
+  --sea-ink:#00606D;
+  --sea-soft:#DCEBEC;
+  --on-sea:#FFFFFF;
+
+  --ochre:#8A5D0B;
+  --ochre-soft:#F3E9D2;
+
+  --crit:#A33529;
+  --shadow:0 1px 1px rgba(11,31,38,.05), 0 10px 24px -16px rgba(11,31,38,.35);
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#071518;
+    --surface:#0E2328;
+    --sunken:#152E34;
+    --line:#204047;
+    --line-soft:#1A353B;
+
+    --ink:#E4EEEF;
+    --ink-2:#9FB6BA;
+    --ink-3:#728E95;
+
+    --sea:#4CC3C9;
+    --sea-ink:#6FD6DA;
+    --sea-soft:#0D3339;
+    --on-sea:#04191C;
+
+    --ochre:#E4B056;
+    --ochre-soft:#33260D;
+
+    --crit:#E08278;
+    --shadow:0 1px 1px rgba(0,0,0,.5), 0 12px 28px -18px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#071518;
+  --surface:#0E2328;
+  --sunken:#152E34;
+  --line:#204047;
+  --line-soft:#1A353B;
+
+  --ink:#E4EEEF;
+  --ink-2:#9FB6BA;
+  --ink-3:#728E95;
+
+  --sea:#4CC3C9;
+  --sea-ink:#6FD6DA;
+  --sea-soft:#0D3339;
+  --on-sea:#04191C;
+
+  --ochre:#E4B056;
+  --ochre-soft:#33260D;
+
+  --crit:#E08278;
+  --shadow:0 1px 1px rgba(0,0,0,.5), 0 12px 28px -18px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+a,button,label,input,summary{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  font-size:16px;line-height:1.5;
+  -webkit-text-size-adjust:100%;
+  padding-top:calc(55px + env(safe-area-inset-top));
+  padding-bottom:calc(72px + env(safe-area-inset-bottom));
+  overflow-x:hidden;
+}
+.shell{max-width:660px;margin:0 auto;padding:0 18px}
+a{color:var(--sea-ink)}
+h1,h2{margin:0;text-wrap:balance}
+.m{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.lab{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+}
+:focus-visible{outline:2px solid var(--sea);outline-offset:3px;border-radius:4px}
+
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:60;
+  background:var(--sea);color:var(--on-sea);padding:11px 18px;
+  border-radius:0 0 10px 0;font-size:14px;font-weight:500;text-decoration:none;
+}
+.skip:focus{left:0}
+
+/* ---------- НАВИГАЦИЯ ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:30;
+  background:var(--ground);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top);
+}
+@supports (backdrop-filter:blur(1px)){
+  .nav{background:color-mix(in srgb,var(--ground) 82%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px)}
+}
+.nav-row{
+  display:flex;gap:7px;overflow-x:auto;overflow-y:hidden;
+  max-width:660px;margin:0 auto;padding:8px 18px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;
+}
+.nav-row::-webkit-scrollbar{display:none}
+.nav-row a{
+  flex:0 0 auto;display:inline-flex;align-items:center;min-height:38px;
+  padding:0 14px;border-radius:999px;
+  border:1px solid var(--line);background:var(--surface);
+  color:var(--ink-2);font-size:13.5px;font-weight:500;text-decoration:none;
+  white-space:nowrap;scroll-snap-align:start;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.nav-row a:hover{border-color:var(--sea);color:var(--sea-ink)}
+.nav-row a:active{background:var(--sea);border-color:var(--sea);color:var(--on-sea)}
+
+/* ---------- ШАПКА ---------- */
+header{padding:30px 0 22px}
+.head-eyebrow{color:var(--ink-3);display:flex;align-items:center;gap:8px}
+.head-eyebrow .dotsep{width:3px;height:3px;border-radius:50%;background:var(--ink-3);flex:0 0 auto}
+h1{
+  font-family:"Instrument Serif",Georgia,"Times New Roman",serif;
+  font-weight:400;font-size:clamp(46px,15vw,68px);line-height:.92;
+  letter-spacing:-.015em;margin:12px 0 8px;
+}
+h1 i{font-style:italic;color:var(--sea-ink)}
+.head-sub{color:var(--ink-2);font-size:15px;max-width:46ch}
+/* MRZ — машиночитаемая полоса как в паспорте, но с настоящими номерами брони */
+.mrz{
+  margin-top:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:9px 0;overflow-x:auto;scrollbar-width:none;
+}
+.mrz::-webkit-scrollbar{display:none}
+.mrz div{
+  font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.7;
+  letter-spacing:.02em;color:var(--ink-3);white-space:nowrap;
+}
+.mrz b{color:var(--ink-2);font-weight:500}
+
+/* ---------- КАРТОЧКА «ЧТО ДАЛЬШЕ» ---------- */
+.now{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--shadow);overflow:hidden;margin-bottom:34px;
+}
+.now-body{
+  padding:17px 19px 15px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;
+  grid-template-areas:"lab cd" "main cd";
+  column-gap:16px;align-items:start;
+}
+.now-lab{grid-area:lab;color:var(--ochre);margin-bottom:7px}
+.now-main{grid-area:main;min-width:0}
+.now-title{font-size:19.5px;font-weight:600;line-height:1.25;letter-spacing:-.01em}
+.now-when{color:var(--ink-2);font-size:13.5px;margin-top:4px;line-height:1.45}
+.cd{grid-area:cd;display:flex;gap:4px;padding-top:2px}
+.cd .u{text-align:center;min-width:44px}
+.cd .n{font-family:"JetBrains Mono",monospace;font-size:25px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.cd .l{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
+.rail{height:3px;background:var(--sunken);position:relative}
+.rail i{position:absolute;inset:0 auto 0 0;background:var(--sea);width:0}
+.now-foot{
+  padding:11px 19px;border-top:1px solid var(--line-soft);background:var(--sunken);
+  font-size:13px;color:var(--ink-2);
+}
+
+/* ---------- СЕКЦИИ ---------- */
+section{margin-bottom:36px;scroll-margin-top:66px}
+.sec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.sec-h h2{
+  font-family:"Instrument Serif",Georgia,serif;font-weight:400;
+  font-size:30px;line-height:1.1;letter-spacing:-.01em;
+}
+.sec-h .lab{color:var(--ink-3);flex:0 0 auto}
+.sec-h::after{content:"";flex:1;height:1px;background:var(--line);order:1}
+.sec-h .lab{order:2}
+
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--shadow);margin-bottom:13px;
+}
+.card-pad{padding:17px 19px}
+
+/* ---------- ПОСАДОЧНЫЙ ТАЛОН (сигнатурный элемент) ---------- */
+.bp{position:relative;overflow:hidden}
+.bp-top{padding:16px 19px 18px}
+.bp-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:18px}
+.bp-airline{font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+.bp-date{font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.badge{
+  font-family:"JetBrains Mono",monospace;font-size:9.5px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:5px 10px;border-radius:6px;white-space:nowrap;flex:0 0 auto;
+}
+.badge.sea{background:var(--sea-soft);color:var(--sea-ink)}
+.badge.ochre{background:var(--ochre-soft);color:var(--ochre)}
+.badge.mute{background:var(--sunken);color:var(--ink-3)}
+
+.route{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:12px}
+.route .iata{font-family:"Instrument Serif",Georgia,serif;font-size:40px;line-height:.9;letter-spacing:.01em}
+.route .clock{font-family:"JetBrains Mono",monospace;font-size:20px;font-weight:500;margin-top:7px;letter-spacing:-.02em}
+.route .place{font-size:12px;color:var(--ink-2);margin-top:5px;line-height:1.35}
+.route .to{text-align:right}
+.route .arc{display:flex;flex-direction:column;align-items:center;gap:5px;padding-top:9px;color:var(--ink-3)}
+.route .arc .dur{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;white-space:nowrap}
+.nextday{font-size:11px;color:var(--ochre);font-family:"JetBrains Mono",monospace;vertical-align:.35em;margin-left:1px}
+
+/* отрывная перфорация */
+.perf{position:relative;height:0;border-top:1px dashed var(--line)}
+.perf::before,.perf::after{
+  content:"";position:absolute;top:-11px;width:22px;height:22px;border-radius:50%;
+  background:var(--ground);border:1px solid var(--line);
+}
+.perf::before{left:-12px;clip-path:inset(0 0 0 50%)}
+.perf::after{right:-12px;clip-path:inset(0 50% 0 0)}
+.bp-stub{padding:16px 19px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 16px}
+.stub-i .k{color:var(--ink-3);margin-bottom:4px}
+.stub-i .v{font-family:"JetBrains Mono",monospace;font-size:13.5px;font-weight:500;font-variant-numeric:tabular-nums;word-break:break-word}
+.stub-i .v.txt{font-family:"Public Sans",sans-serif;font-size:14px}
+
+/* ---------- ТАЙМЛАЙН ---------- */
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:69px;top:8px;bottom:14px;width:1px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:62px 1fr;column-gap:24px;position:relative;padding-bottom:21px}
+.tl li:last-child{padding-bottom:0}
+.tl .when{
+  font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-2);
+  text-align:right;line-height:1.4;padding-top:2px;font-variant-numeric:tabular-nums;
+}
+.tl .when b{display:block;font-weight:500;color:var(--ink);font-size:12px}
+.tl .dot{
+  position:absolute;left:65px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:var(--line);box-shadow:0 0 0 3px var(--ground);
+}
+.tl .what{font-size:14.5px;font-weight:500;line-height:1.35;letter-spacing:-.005em}
+.tl .note{font-size:12.5px;color:var(--ink-3);font-weight:400;margin-top:3px;line-height:1.4}
+.tl li.is-past .dot{background:var(--ink-3)}
+.tl li.is-past .what,.tl li.is-past .when,.tl li.is-past .note{opacity:.45}
+.tl li.is-next .dot{background:var(--ochre);box-shadow:0 0 0 4px var(--ochre-soft)}
+.tl li.is-next .what{color:var(--ochre)}
+
+/* ---------- ПАРЫ КЛЮЧ-ЗНАЧЕНИЕ ---------- */
+.kv{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:9px 16px;font-size:13.5px}
+.kv dt{color:var(--ink-3)}
+.kv dd{
+  margin:0;text-align:right;font-weight:500;
+  font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;word-break:break-word;
+}
+.kv dd.txt{font-family:"Public Sans",sans-serif;font-size:14px}
+.kv-top{border-top:1px solid var(--line-soft);margin-top:16px;padding-top:15px}
+
+
+/* ---------- КНОПКА ---------- */
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  min-height:54px;padding:0 20px;border-radius:12px;
+  background:var(--sea);color:var(--on-sea);
+  font-size:15.5px;font-weight:600;letter-spacing:-.01em;
+  text-decoration:none;text-align:center;
+  transition:filter .18s ease,transform .1s ease;
+}
+.btn:hover{filter:brightness(1.09)}
+.btn:active{transform:scale(.985)}
+.btn svg{flex:0 0 auto}
+.btn-note{margin:12px 0 0;font-size:12.5px;color:var(--ink-3);line-height:1.5}
+
+/* ---------- ЗВОНКИ ---------- */
+.calls{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:var(--surface)}
+.calls a{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  min-height:56px;padding:11px 17px;text-decoration:none;color:var(--ink);
+  border-bottom:1px solid var(--line-soft);transition:background .15s ease;
+}
+.calls a:last-child{border-bottom:0}
+.calls a:hover{background:var(--sunken)}
+.calls a:active{background:var(--sea-soft)}
+.calls a > span:first-child{min-width:0}
+.calls .who{font-size:14.5px;font-weight:500;display:block;letter-spacing:-.005em}
+.calls .why{font-size:12px;color:var(--ink-3);display:block;margin-top:2px}
+.calls .num{
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--sea-ink);
+  white-space:nowrap;flex:0 0 auto;display:flex;align-items:center;gap:7px;font-variant-numeric:tabular-nums;
+}
+
+/* ---------- ЗАМЕТКА ---------- */
+.note-box{
+  display:flex;gap:12px;align-items:flex-start;
+  border:1px solid var(--line);border-left:3px solid var(--ochre);
+  background:var(--ochre-soft);color:var(--ink);
+  padding:13px 15px;border-radius:0 12px 12px 0;
+  font-size:13.5px;line-height:1.5;margin-bottom:13px;
+}
+.note-box.sea{border-left-color:var(--sea);background:var(--sea-soft)}
+.note-box svg{flex:0 0 auto;margin-top:2px;color:var(--ochre)}
+.note-box.sea svg{color:var(--sea-ink)}
+.note-box b{font-weight:600}
+
+/* ---------- ЧЕК-ЛИСТ ---------- */
+.chk{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.chk li{border-bottom:1px solid var(--line-soft)}
+.chk li:last-child{border-bottom:0}
+.chk label{display:flex;gap:14px;align-items:flex-start;min-height:52px;padding:13px 17px;cursor:pointer}
+.chk label:active{background:var(--sunken)}
+.chk input{
+  appearance:none;-webkit-appearance:none;flex:0 0 auto;margin:1px 0 0;
+  width:21px;height:21px;border:1.5px solid var(--ink-3);border-radius:7px;
+  background:transparent;position:relative;cursor:pointer;
+  transition:background .15s ease,border-color .15s ease;
+}
+.chk input:checked{background:var(--sea);border-color:var(--sea)}
+.chk input:checked::after{
+  content:"";position:absolute;left:7px;top:3px;width:4px;height:9px;
+  border:solid var(--on-sea);border-width:0 2px 2px 0;transform:rotate(43deg);
+}
+.chk .txt{font-size:14.5px;line-height:1.35;letter-spacing:-.005em}
+.chk .sub{display:block;font-size:12.5px;color:var(--ink-3);margin-top:3px;line-height:1.4}
+.chk .ttl{display:block}
+.chk input:checked + .txt .ttl{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--ink-3)}
+.chk input:checked + .txt .sub{opacity:.6}
+.chk-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:11px;font-size:12.5px;color:var(--ink-3)}
+.chk-foot button{
+  font-family:inherit;font-size:12.5px;color:var(--ink-3);background:none;border:0;
+  cursor:pointer;padding:8px 0;text-decoration:underline;text-underline-offset:3px;
+}
+.chk-foot button:hover{color:var(--ink)}
+
+/* ---------- ДОКУМЕНТЫ ---------- */
+.docs{list-style:none;margin:0;padding:0}
+.docs li{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--line-soft);align-items:baseline}
+.docs li:last-child{border-bottom:0}
+.docs .n{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.docs .t{font-size:14px;font-weight:500}
+.docs .f{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-3);margin-top:3px;word-break:break-all}
+
+footer{
+  margin-top:40px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--ink-3);line-height:1.7;
+}
+
+@media (prefers-reduced-motion:no-preference){
+  header,.now,section{animation:rise .55s cubic-bezier(.2,.72,.3,1) backwards}
+  .now{animation-delay:.06s}
+  section:nth-of-type(1){animation-delay:.12s}
+  .rail i{transition:width .7s cubic-bezier(.2,.72,.3,1)}
+}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+
+
+/* ============================================================
+   ШИРОКИЙ ЭКРАН: липкий рельс слева, документы справа
+   ============================================================ */
+@media (min-width:940px){
+  body{padding-top:0}
+
+  .shell{
+    max-width:1180px;padding:0 40px;
+    display:grid;grid-template-columns:326px minmax(0,1fr);
+    column-gap:68px;align-items:start;
+  }
+
+  .side{
+    position:sticky;top:0;
+    display:flex;flex-direction:column;
+    height:100vh;height:100dvh;overflow-y:auto;
+    padding:46px 0 28px;scrollbar-width:none;
+  }
+  .side::-webkit-scrollbar{display:none}
+
+  header{order:1;padding:0 0 22px}
+  h1{font-size:56px;margin:14px 0 10px}
+  .head-sub{font-size:14.5px}
+  .mrz{margin-top:18px}
+
+  .now{order:2;margin-bottom:26px}
+  .now-body{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"lab" "cd" "main";
+    row-gap:14px;padding:17px 19px 16px;
+  }
+  .now-lab{margin-bottom:0}
+  .cd{gap:10px}
+  .cd .u{min-width:0;flex:1;text-align:left}
+  .cd .n{font-size:33px}
+  .cd .l{margin-top:7px}
+  .now-title{font-size:18px}
+
+  .nav{
+    order:3;position:static;z-index:auto;
+    background:none;border:0;padding:0;
+    -webkit-backdrop-filter:none;backdrop-filter:none;
+  }
+  .nav-row{
+    flex-direction:column;gap:1px;overflow:visible;
+    max-width:none;margin:0;padding:0;
+  }
+  .nav-row a{
+    min-height:38px;padding:0 12px;border:0;border-radius:9px;
+    background:none;font-size:14px;
+  }
+  .nav-row a:hover{background:var(--sunken);border-color:transparent;color:var(--ink)}
+  .nav-row a:active{background:var(--sea-soft);color:var(--sea-ink)}
+  .nav-row a.on{background:var(--sea-soft);color:var(--sea-ink);font-weight:600}
+
+  .main{padding:46px 0 0;min-width:0}
+  .main > section:first-child{margin-top:0}
+  section{margin-bottom:46px;scroll-margin-top:46px}
+  .sec-h h2{font-size:34px}
+
+  .card{margin-bottom:16px}
+  .card-pad{padding:21px 25px}
+  .bp-top{padding:21px 25px 24px}
+  .bp-stub{padding:19px 25px;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 20px}
+  .route .iata{font-size:46px}
+  .route{grid-template-columns:1fr minmax(150px,1.15fr) 1fr;column-gap:20px}
+  .route .arc{position:relative;align-self:center;width:100%;padding-top:0;gap:0}
+  .route .arc::before{
+    content:"";position:absolute;left:0;right:0;top:9px;
+    border-top:1px dashed currentColor;opacity:.5;
+  }
+  .route .arc > *{position:relative;z-index:1;background:var(--surface)}
+  .route .arc svg{padding:0 9px}
+  .route .arc svg path:first-child{display:none}
+  .route .arc .dur{padding:0 9px;margin-top:3px}
+  .route .clock{font-size:22px}
+  .route .place{font-size:12.5px}
+  .kv{font-size:14px;column-gap:24px}
+  .calls a{padding:13px 22px;min-height:62px}
+  .chk label{padding:14px 22px}
+  .note-box{padding:15px 18px;font-size:14px}
+  footer{margin-top:52px}
+}
+
+@media (min-width:1240px){
+  .shell{max-width:1280px;grid-template-columns:356px minmax(0,1fr);column-gap:84px}
+}
+
+@media (max-width:359px){
+  .bp-stub{grid-template-columns:1fr}
+  .route .iata{font-size:34px}
+  .cd .u{min-width:38px}
+  .cd .n{font-size:22px}
+}
+</style>
+
+<a class="skip" href="#plan">Перейти к плану поездки</a>
+
+<div class="shell">
+<aside class="side">
+<nav class="nav" aria-label="Разделы">
+  <div class="nav-row">
+    <a href="#plan">План</a>
+    <a href="#flights">Рейсы</a>
+    <a href="#hotel">Отель</a>
+    <a href="#insurance">Страховка</a>
+    <a href="#calls">Телефоны</a>
+    <a href="#checklist">Чек-лист</a>
+    <a href="#docs">Документы</a>
+  </div>
+</nav>
+
+<header>
+  <div class="head-eyebrow lab">
+    <span>Египет</span><span class="dotsep"></span>
+    <span>Средиземное море</span><span class="dotsep"></span>
+    <span>9&nbsp;ночей</span>
+  </div>
+  <h1>Эль-<i>Аламейн</i></h1>
+  <p class="head-sub">7 → 18 сентября 2026 · Rixos Premium Alamein 5★ · Антон и Мария</p>
+  <div class="mrz" aria-label="Номера брони" translate="no">
+    <div>BOOKING&lt;12754604&lt;&lt;VOUCHER&lt;<b>6143948</b>&lt;&lt;EGY&lt;&lt;&lt;&lt;</div>
+    <div>ETP&lt;<b>0225435804816132</b>&lt;&lt;NE407&lt;SM949&lt;&lt;ERV3428311</div>
+  </div>
+</header>
+
+<div class="now">
+  <div class="now-body" aria-live="polite">
+    <div class="now-lab lab" id="now-lab">Следующий шаг</div>
+    <div class="now-main">
+      <div class="now-title" id="now-title">—</div>
+      <div class="now-when" id="now-when">—</div>
+    </div>
+    <div class="cd" id="cd">
+      <div class="u"><div class="n" id="cd-d">—</div><div class="l">дн</div></div>
+      <div class="u"><div class="n" id="cd-h">—</div><div class="l">ч</div></div>
+      <div class="u"><div class="n" id="cd-m">—</div><div class="l">мин</div></div>
+    </div>
+  </div>
+  <div class="rail" role="progressbar" aria-label="Прогресс поездки" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="rail-outer"><i id="rail"></i></div>
+  <div class="now-foot" id="now-foot">В сентябре Египет живёт по московскому времени — разницы нет.</div>
+</div>
+
+</aside>
+
+<main class="main">
+
+<section id="plan">
+  <div class="sec-h"><h2>План поездки</h2><span class="lab">13&nbsp;шагов</span></div>
+  <ul class="tl" id="timeline"></ul>
+
+  <article class="card">
+    <div class="card-pad">
+      <div class="bp-h" style="margin-bottom:16px">
+        <div>
+          <div class="bp-airline">Напоминания в календарь</div>
+          <div class="bp-date">13 событий с будильниками: сборы, аэропорт, оба рейса, заселение, трансферы</div>
+        </div>
+        <span class="badge sea">ICS</span>
+      </div>
+      <a class="btn" id="ics-btn" href="otpusk-2026.ics" download="otpusk-2026.ics">
+        <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <rect x="2.2" y="3.4" width="13.6" height="12.4" rx="2.2" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M2.2 7.2h13.6M6 2v2.6M12 2v2.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M6.6 11.4l1.7 1.7 3.1-3.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Добавить в календарь
+      </a>
+      <p class="btn-note">Откроется «Календарь» — нажмите «Добавить все». Этой же ссылкой можно поделиться: у второго человека события добавятся так же, одной кнопкой.</p>
+    </div>
+  </article>
+</section>
+
+<section id="flights">
+  <div class="sec-h"><h2>Рейсы</h2><span class="lab">Чартер</span></div>
+
+  <article class="card bp" id="bp-out">
+    <div class="bp-top">
+      <div class="bp-h">
+        <div>
+          <div class="bp-airline">Nesma Airlines · NE 407</div>
+          <div class="bp-date">Понедельник, 7 сентября 2026</div>
+        </div>
+        <span class="badge sea" id="badge-out">Туда</span>
+      </div>
+      <div class="route">
+        <div>
+          <div class="iata">VKO</div>
+          <div class="clock">19:35</div>
+          <div class="place">Москва, Внуково<br>терминал A</div>
+        </div>
+        <div class="arc">
+          <svg width="58" height="20" viewBox="0 0 58 20" fill="none" aria-hidden="true">
+            <path d="M2 18C9.5 7.5 48.5 7.5 56 18" stroke="currentColor" stroke-width="1" stroke-dasharray="2.5 3.5" stroke-linecap="round"/>
+            <path d="M35.4 6.2a1.05 1.05 0 00-1.5-1.45l-3.1 3.05-4.05-1.05a.62.62 0 00-.6.18l-.72.72a.5.5 0 00.12.8l3.1 1.6-1.85 1.83-1.66-.28a.5.5 0 00-.44.14l-.5.5a.45.45 0 00.1.72l1.72.95.95 1.72c.2.36.68.42.96.14l.5-.5a.5.5 0 00.14-.44l-.28-1.66 1.83-1.85 1.6 3.1a.5.5 0 00.8.12l.72-.72a.62.62 0 00.18-.6l-1.05-4.05z" fill="currentColor"/>
+          </svg>
+          <div class="dur">5&nbsp;ч&nbsp;10&nbsp;мин</div>
+        </div>
+        <div class="to">
+          <div class="iata">DBB</div>
+          <div class="clock">00:45<span class="nextday">+1</span></div>
+          <div class="place">Эль-Дабаа<br>Эль-Аламейн</div>
+        </div>
+      </div>
+    </div>
+    <div class="perf"></div>
+    <div class="bp-stub">
+      <div class="stub-i"><div class="k lab">Прокопенко Антон</div><div class="v">75 ••• 583</div></div>
+      <div class="stub-i"><div class="k lab">Кузнецова Мария</div><div class="v">76 ••• 874</div></div>
+      <div class="stub-i"><div class="k lab">Класс · багаж</div><div class="v">Y · 10</div></div>
+      <div class="stub-i"><div class="k lab">Быть в аэропорту</div><div class="v">16:35</div></div>
+    </div>
+  </article>
+
+  <article class="card bp" id="bp-back">
+    <div class="bp-top">
+      <div class="bp-h">
+        <div>
+          <div class="bp-airline">Air Cairo · SM 949</div>
+          <div class="bp-date">Четверг, 17 сентября 2026</div>
+        </div>
+        <span class="badge mute" id="badge-back">Обратно</span>
+      </div>
+      <div class="route">
+        <div>
+          <div class="iata">DBB</div>
+          <div class="clock">23:40</div>
+          <div class="place">Эль-Дабаа<br>Эль-Аламейн</div>
+        </div>
+        <div class="arc">
+          <svg width="58" height="20" viewBox="0 0 58 20" fill="none" aria-hidden="true">
+            <path d="M2 18C9.5 7.5 48.5 7.5 56 18" stroke="currentColor" stroke-width="1" stroke-dasharray="2.5 3.5" stroke-linecap="round"/>
+            <path d="M35.4 6.2a1.05 1.05 0 00-1.5-1.45l-3.1 3.05-4.05-1.05a.62.62 0 00-.6.18l-.72.72a.5.5 0 00.12.8l3.1 1.6-1.85 1.83-1.66-.28a.5.5 0 00-.44.14l-.5.5a.45.45 0 00.1.72l1.72.95.95 1.72c.2.36.68.42.96.14l.5-.5a.5.5 0 00.14-.44l-.28-1.66 1.83-1.85 1.6 3.1a.5.5 0 00.8.12l.72-.72a.62.62 0 00.18-.6l-1.05-4.05z" fill="currentColor"/>
+          </svg>
+          <div class="dur">5&nbsp;ч&nbsp;10&nbsp;мин</div>
+        </div>
+        <div class="to">
+          <div class="iata">SVO</div>
+          <div class="clock">04:50<span class="nextday">+1</span></div>
+          <div class="place">Москва, Шереметьево<br>терминал C</div>
+        </div>
+      </div>
+    </div>
+    <div class="perf"></div>
+    <div class="bp-stub">
+      <div class="stub-i"><div class="k lab">Прокопенко Антон</div><div class="v">75 ••• 583</div></div>
+      <div class="stub-i"><div class="k lab">Кузнецова Мария</div><div class="v">76 ••• 874</div></div>
+      <div class="stub-i"><div class="k lab">Класс · багаж</div><div class="v">Y · 10</div></div>
+      <div class="stub-i"><div class="k lab">Быть в аэропорту</div><div class="v">20:40</div></div>
+    </div>
+  </article>
+
+  <div class="note-box">
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.6" stroke="currentColor" stroke-width="1.3"/><path d="M8 4.6v4.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.3" r=".9" fill="currentColor"/></svg>
+    <div>Чартер: <b>онлайн-регистрации нет</b>, только стойка в аэропорту. Время вылета уточните накануне — у чартеров оно сдвигается. Норма багажа в квитанции стоит как «10» без единиц, уточните у оператора.</div>
+  </div>
+</section>
+
+<section id="hotel">
+  <div class="sec-h"><h2>Отель</h2><span class="lab">08–17&nbsp;сен</span></div>
+
+  <article class="card">
+    <div class="card-pad">
+      <div class="bp-h">
+        <div>
+          <div class="bp-airline">Rixos Premium Alamein 5★</div>
+          <div class="bp-date">Египет, Эль-Аламейн · северное побережье</div>
+        </div>
+        <span class="badge ochre">UAI</span>
+      </div>
+      <dl class="kv">
+        <dt>Заезд</dt><dd>08.09.2026</dd>
+        <dt>Выезд</dt><dd>17.09.2026</dd>
+        <dt>Ночей</dt><dd>9</dd>
+        <dt>Номер</dt><dd class="txt">Studio / DBL</dd>
+        <dt>Питание</dt><dd class="txt">Ultra All Inclusive</dd>
+        <dt>Ваучер</dt><dd>6143948</dd>
+        <dt>Электронная путёвка</dt><dd>0225435804816132</dd>
+      </dl>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-pad">
+      <div class="bp-h" style="margin-bottom:14px">
+        <div>
+          <div class="bp-airline">Трансферы</div>
+          <div class="bp-date">Групповые, включены в тур</div>
+        </div>
+        <span class="badge sea">DBB</span>
+      </div>
+      <dl class="kv">
+        <dt>08.09 · аэропорт → отель</dt><dd class="txt">Group transfer</dd>
+        <dt>17.09 · отель → аэропорт</dt><dd class="txt">Group transfer</dd>
+      </dl>
+    </div>
+  </article>
+
+  <div class="note-box">
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.6" stroke="currentColor" stroke-width="1.3"/><path d="M8 4.4V8l2.4 1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div>Точное время обратного трансфера гид называет <b>за сутки</b>. Если 16 сентября не сказали сами — спросите.</div>
+  </div>
+</section>
+
+<section id="insurance">
+  <div class="sec-h"><h2>Страховка</h2><span class="lab">ERV · 40 000 $</span></div>
+
+  <article class="card">
+    <div class="card-pad">
+      <div class="bp-h">
+        <div>
+          <div class="bp-airline">ERV · программа «Стандарт»</div>
+          <div class="bp-date">Договор ЕРВ01/26/ВЗР № 3428311 от 19.01.2026</div>
+        </div>
+        <span class="badge sea">T-I</span>
+      </div>
+      <dl class="kv">
+        <dt>Номер брони</dt><dd>А270-12754604/8</dd>
+        <dt>Страховая сумма</dt><dd>40&nbsp;000&nbsp;USD</dd>
+        <dt>Франшиза</dt><dd>30&nbsp;USD</dd>
+        <dt>Период</dt><dd>08.09 — 17.09.2026</dd>
+        <dt>Срок</dt><dd>10 дней</dd>
+        <dt>От невыезда</dt><dd class="txt">Не включено</dd>
+        <dt>Спорт</dt><dd class="txt">Не включён</dd>
+        <dt>COVID-19</dt><dd class="txt">Покрывается</dd>
+      </dl>
+      <dl class="kv kv-top">
+        <dt>Кузнецова Мария</dt><dd>27.01.1997</dd>
+        <dt>Прокопенко Антон</dt><dd>20.01.1994</dd>
+      </dl>
+    </div>
+  </article>
+
+  <div class="note-box">
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.8l5.4 2v4c0 3.2-2.2 5.6-5.4 6.4-3.2-.8-5.4-3.2-5.4-6.4v-4z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M8 5.3v3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="10.8" r=".85" fill="currentColor"/></svg>
+    <div>Полис действует <b>с 08.09 по 17.09</b>, а вылет 7-го вечером и возвращение 18-го утром. Дорога в обе стороны формально вне покрытия — уточните у оператора до вылета.</div>
+  </div>
+
+  <div class="calls">
+    <a href="tel:+74951331086">
+      <span><span class="who">Сервисный центр ERV</span><span class="why">Страховой случай, круглосуточно</span></span>
+      <span class="num">+7&nbsp;495&nbsp;133-10-86
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+    <a href="tel:+74951337667">
+      <span><span class="who">Сервисный центр ERV</span><span class="why">Резервный номер, круглосуточно</span></span>
+      <span class="num">+7&nbsp;495&nbsp;133-76-67
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+    <a href="tel:+74956265800">
+      <span><span class="who">Утрата багажа</span><span class="why">9:00–21:00 по Москве</span></span>
+      <span class="num">+7&nbsp;495&nbsp;626-58-00
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+    <a href="tel:88007006352">
+      <span><span class="who">Багаж, бесплатная линия</span><span class="why">9:00–21:00 по Москве</span></span>
+      <span class="num">8&nbsp;800&nbsp;700-63-52
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+
+  <div class="note-box sea" style="margin-top:13px">
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.4 4.2h11.2v7.6H2.4z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M2.4 4.6L8 8.8l5.6-4.2" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+    <div>Мессенджеры ERV: <b>+7 926 375-24-99</b>, <b>+7 985 109-85-77</b>, <b>+7 915 005-21-10</b>. Это не канал экстренной связи: нет ответа 15 минут — звоните на горячую линию. Порядок выплат — на erv.ru, раздел «Страховой случай».</div>
+  </div>
+</section>
+
+<section id="calls">
+  <div class="sec-h"><h2>Кому звонить</h2><span class="lab">На месте</span></div>
+  <div class="calls">
+    <a href="tel:+908505490707">
+      <span><span class="who">Anex Tourism Worldwide</span><span class="why">Принимающая сторона, встреча в аэропорту</span></span>
+      <span class="num">+90&nbsp;850&nbsp;549-07-07
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+    <a href="tel:88007005775">
+      <span><span class="who">Интурист</span><span class="why">Туроператор, Москва</span></span>
+      <span class="num">8&nbsp;800&nbsp;700-57-75
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+    <a href="tel:+74997458989">
+      <span><span class="who">Натали-Тревел</span><span class="why">Агентство</span></span>
+      <span class="num">+7&nbsp;499&nbsp;745-89-89
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+    <a href="https://t.me/Intourist_Helper_Bot" target="_blank" rel="noopener">
+      <span><span class="who">Чат-бот Интуриста</span><span class="why">Гид в отеле, рейсы, трансферы</span></span>
+      <span class="num">Telegram
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L3.5 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="sec-h"><h2>Чек-лист</h2><span class="lab" id="chk-count">0 / 0</span></div>
+  <ul class="chk" id="chk"></ul>
+  <div class="chk-foot">
+    <span>Отметки сохраняются в этом браузере</span>
+    <button type="button" id="chk-reset">Снять все</button>
+  </div>
+</section>
+
+<section id="docs">
+  <div class="sec-h"><h2>Документы</h2><span class="lab">6&nbsp;PDF</span></div>
+  <ul class="docs">
+    <li><span class="n">01</span><span><span class="t">Билет туда — Антон</span><span class="f">aviaticket_12754604_215448579_8rYXWQYy0epgoO98.pdf</span></span></li>
+    <li><span class="n">02</span><span><span class="t">Билет туда — Мария</span><span class="f">aviaticket_12754604_215448589_35NRxm7vki5waDrV.pdf</span></span></li>
+    <li><span class="n">03</span><span><span class="t">Билет обратно — Антон</span><span class="f">aviaticket_12754604_215450039_GCZftodQhkharBZm.pdf</span></span></li>
+    <li><span class="n">04</span><span><span class="t">Билет обратно — Мария</span><span class="f">aviaticket_12754604_215450053_zJAMIjqAa4wlU6FU.pdf</span></span></li>
+    <li><span class="n">05</span><span><span class="t">Ваучер: отель и трансферы</span><span class="f">cl_refer_6143948_40714608_MCCDlg5ZWIop4b6y.pdf</span></span></li>
+    <li><span class="n">06</span><span><span class="t">Страховой полис ERV</span><span class="f">insurance_12754604_215450054_MB3drLbf5bYSHqpv.pdf</span></span></li>
+  </ul>
+  <div class="note-box sea" style="margin-top:16px">
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.9v8.4M5.2 7.6L8 10.4l2.8-2.8M2.6 12.6h10.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div>Положите все шесть PDF в «Файлы» на iPhone — они откроются без интернета. Эта страница тоже работает офлайн, но документы в неё не вшиты.</div>
+  </div>
+</section>
+
+<footer>
+  Данные взяты из маршрут-квитанций, ваучера № 6143948 и полиса ERV № 3428311.<br>
+  Время везде местное: в сентябре Египет и Москва совпадают, UTC+3.
+</footer>
+
+</main>
+</div>
+
+<script type="text/plain" id="ics-data">BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Otpusk 2026//Alamein//RU
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Эль-Аламейн 2026
+X-WR-TIMEZONE:Europe/Moscow
+BEGIN:VEVENT
+UID:doc-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260906T090000Z
+DTEND:20260906T093000Z
+SUMMARY:Собрать документы в Египет
+DESCRIPTION:Загранпаспорта, распечатки билет
+ ов (NE 407 / SM 949), ваучер 6143948, полис ERV 3428311.\n
+ Бронь 12754604.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Собрать документы
+TRIGGER:PT0S
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:chk-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260906T160000Z
+DTEND:20260906T162000Z
+SUMMARY:Уточнить время вылета NE 407
+DESCRIPTION:У чартеров время сдвигается. Чат-
+ бот t.me/Intourist_Helper_Bot или Anex +90 850 549 07 07.
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Проверить время вылета
+TRIGGER:PT0S
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:apt1-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260907T133500Z
+DTEND:20260907T143500Z
+SUMMARY:Внуково\, терминал A — регистрация
+DESCRIPTION:Быть за 3 часа. Онлайн-регистрации
+  у чартера нет, только стойка.
+LOCATION:Аэропорт Внуково\, терминал A
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Пора в аэропорт
+TRIGGER:PT0S
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Выезжать в аэропорт
+TRIGGER:-PT180M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fl1-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260907T163500Z
+DTEND:20260907T214500Z
+SUMMARY:NE 407 · Москва VKO → Эль-Дабаа DBB
+DESCRIPTION:Nesma Airlines. Вылет 19:35, прилёт 00:45+1 (ме
+ стное = московское).\nАнтон 75 ••• 583, Мария 7
+ 6 8174874. Класс Y, багаж 10.
+LOCATION:Внуково (VKO-A)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Вылет через час
+TRIGGER:-PT60M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:arr-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260907T214500Z
+DTEND:20260907T224500Z
+SUMMARY:Прилёт DBB · виза и встреча с гидом
+DESCRIPTION:Виза Египта покупается по прилёт
+ у, нужны наличные доллары. Дальше групп
+ овой трансфер в Rixos.\nAnex hotline +90 850 549 07 07.
+LOCATION:Эль-Дабаа (DBB)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Прилёт
+TRIGGER:PT0S
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:in-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260908T050000Z
+DTEND:20260908T060000Z
+SUMMARY:Заселение в Rixos Premium Alamein 5*
+DESCRIPTION:Ваучер 6143948. Studio / DBL, Ultra All Inclusive. Вы
+ езд 17.09.
+LOCATION:Rixos Premium Alamein\, Эль-Аламейн\, Египет
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Заселение
+TRIGGER:PT0S
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:tr-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260916T090000Z
+DTEND:20260916T092000Z
+SUMMARY:Спросить у гида время обратного тра
+ нсфера
+DESCRIPTION:Гид называет время за сутки до вы
+ лета. Вылет SM 949 — 17.09 в 23:40.
+LOCATION:Rixos Premium Alamein
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Спросить время трансфера
+TRIGGER:PT0S
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:out-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260917T080000Z
+DTEND:20260917T090000Z
+SUMMARY:Выезд из отеля
+DESCRIPTION:Сдать номер, забрать вещи и докум
+ енты из сейфа. Дальше групповой трансфе
+ р в аэропорт DBB.
+LOCATION:Rixos Premium Alamein
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Выезд из отеля
+TRIGGER:PT0S
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Начать собирать чемоданы
+TRIGGER:-PT120M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:apt2-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260917T174000Z
+DTEND:20260917T184000Z
+SUMMARY:Аэропорт Эль-Дабаа — регистрация
+DESCRIPTION:Быть за 3 часа до вылета SM 949.
+LOCATION:Эль-Дабаа (DBB)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Пора в аэропорт
+TRIGGER:PT0S
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:fl2-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART:20260917T204000Z
+DTEND:20260918T015000Z
+SUMMARY:SM 949 · Эль-Дабаа DBB → Москва SVO
+DESCRIPTION:Air Cairo. Вылет 23:40, прилёт 04:50+1 в Шере
+ метьево, терминал C.\nАнтон 75 ••• 583, Мария 7
+ 6 8174874. Класс Y, багаж 10.
+LOCATION:Эль-Дабаа (DBB)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Вылет через час
+TRIGGER:-PT60M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:stay-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART;VALUE=DATE:20260908
+DTEND;VALUE=DATE:20260918
+SUMMARY:Rixos Premium Alamein 5* · 9 ночей
+DESCRIPTION:Ваучер 6143948. Studio / DBL, Ultra All Inclusive. Бр
+ онь 12754604, ЭП 0225435804816132.\nТрансферы группо
+ вые, включены.
+LOCATION:Эль-Аламейн\, Египет
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ins-12754604@alamein2026
+DTSTAMP:20260831T000000Z
+DTSTART;VALUE=DATE:20260908
+DTEND;VALUE=DATE:20260918
+SUMMARY:Полис ERV действует · 40 000 USD
+DESCRIPTION:Договор ЕРВ01/26/ВЗР №3428311, бронь А27
+ 0-12754604/8. Франшиза 30 USD.\nЭкстренно 24/7: +7 495 
+ 133 10 86, +7 495 133 76 67.\nБагаж: +7 495 626 58 00, 8 800 700 63
+  52.
+LOCATION:Египет
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
+</script>
+
+<script>
+"use strict";
+
+var EV = [
+  {t:"2026-09-06T12:00:00+03:00", d:"Собрать документы",          n:"Паспорта, распечатки билетов, ваучер, полис"},
+  {t:"2026-09-06T19:00:00+03:00", d:"Уточнить время вылета",      n:"У чартеров время сдвигается. Чат-бот или Anex"},
+  {t:"2026-09-07T16:35:00+03:00", d:"Внуково, терминал A",        n:"За три часа. Регистрация только на стойке"},
+  {t:"2026-09-07T19:35:00+03:00", d:"Вылет NE 407",               n:"Nesma Airlines · Москва → Эль-Дабаа"},
+  {t:"2026-09-08T00:45:00+03:00", d:"Прилёт в Эль-Дабаа",         n:"Виза по прилёту, затем встреча с гидом Anex"},
+  {t:"2026-09-08T02:00:00+03:00", d:"Трансфер в отель",           n:"Групповой, аэропорт DBB → Rixos"},
+  {t:"2026-09-08T08:00:00+03:00", d:"Заселение в Rixos",          n:"Ваучер 6143948 · Studio DBL · Ultra All Inclusive"},
+  {t:"2026-09-12T12:00:00+03:00", d:"Середина отдыха",            n:"Проверить, что документы и деньги в сейфе"},
+  {t:"2026-09-16T12:00:00+03:00", d:"Спросить время трансфера",   n:"Гид называет его за сутки до вылета"},
+  {t:"2026-09-17T11:00:00+03:00", d:"Выезд из отеля",             n:"Сдать номер, забрать вещи из сейфа"},
+  {t:"2026-09-17T20:40:00+03:00", d:"Аэропорт Эль-Дабаа",         n:"За три часа до вылета"},
+  {t:"2026-09-17T23:40:00+03:00", d:"Вылет SM 949",               n:"Air Cairo · Эль-Дабаа → Шереметьево C"},
+  {t:"2026-09-18T04:50:00+03:00", d:"Прилёт в Шереметьево",       n:"Терминал C. Дома"}
+];
+
+var CHK = [
+  ["pass",  "Загранпаспорта",            "Должны действовать минимум до марта 2027"],
+  ["print", "Распечатать шесть PDF",     "Билеты, ваучер, полис — по экземпляру каждому"],
+  ["visa",  "Наличные доллары на визу",  "Виза Египта покупается по прилёту, сумму уточните"],
+  ["cash",  "Наличные на чаевые",        "Карты «Мир» в Египте не принимают"],
+  ["ins",   "Уточнить даты полиса",      "Покрытие с 08.09, а вылет 07.09"],
+  ["sim",   "Роуминг или eSIM",          "Wi-Fi в Rixos есть, но не по всей территории"],
+  ["med",   "Аптечка",                   "От солнца, от живота, личные лекарства"],
+  ["sun",   "Крем SPF 50",               "Сентябрь на Средиземном — солнце ещё злое"],
+  ["adapt", "Зарядки и переходник",      "Розетки в Египте C/F, как в России"],
+  ["photo", "Скриншоты документов",      "В фотоплёнку, на случай без интернета"],
+  ["cal",   "Добавить напоминания",      "Кнопка «Добавить в календарь» в разделе «План»"]
+];
+
+document.documentElement.lang = "ru";
+
+var fmtDay, fmtTime, fmtFull;
+try {
+  fmtDay  = new Intl.DateTimeFormat("ru-RU", {day:"numeric", month:"short"});
+  fmtTime = new Intl.DateTimeFormat("ru-RU", {hour:"2-digit", minute:"2-digit", hour12:false});
+  fmtFull = new Intl.DateTimeFormat("ru-RU", {day:"numeric", month:"long", hour:"2-digit", minute:"2-digit", hour12:false});
+} catch (err) {
+  var MON = ["янв.","февр.","марта","апр.","мая","июня","июля","авг.","сент.","окт.","нояб.","дек."];
+  var pad = function(n){ return n < 10 ? "0" + n : "" + n; };
+  fmtDay  = { format:function(d){ return d.getDate() + " " + MON[d.getMonth()]; } };
+  fmtTime = { format:function(d){ return pad(d.getHours()) + ":" + pad(d.getMinutes()); } };
+  fmtFull = { format:function(d){ return fmtDay.format(d) + ", " + fmtTime.format(d); } };
+}
+function p2(n){ return n < 10 ? "0" + n : "" + n; }
+
+var evs = EV.map(function(e){ return { at:new Date(e.t), d:e.d, n:e.n }; });
+var DEPART = evs[3].at.getTime();
+var HOME   = evs[evs.length - 1].at.getTime();
+
+function nextIdx(now){
+  for (var i = 0; i < evs.length; i++){ if (evs[i].at.getTime() > now) return i; }
+  return -1;
+}
+
+function renderTimeline(ni){
+  var out = "";
+  for (var i = 0; i < evs.length; i++){
+    var e = evs[i], at = e.at;
+    var cls = (ni < 0 || i < ni) ? "is-past" : (i === ni ? "is-next" : "");
+    out += '<li class="' + cls + '">'
+        +    '<div class="when"><b>' + fmtDay.format(at) + "</b>" + fmtTime.format(at) + "</div>"
+        +    '<span class="dot"></span>'
+        +    '<div><div class="what">' + e.d + '</div><div class="note">' + e.n + "</div></div>"
+        +  "</li>";
+  }
+  document.getElementById("timeline").innerHTML = out;
+}
+
+function tick(){
+  var now = Date.now();
+  var ni  = nextIdx(now);
+  var lab = document.getElementById("now-lab");
+  var ttl = document.getElementById("now-title");
+  var whn = document.getElementById("now-when");
+  var cd  = document.getElementById("cd");
+  var rail = document.getElementById("rail");
+  var railOuter = document.getElementById("rail-outer");
+  var foot = document.getElementById("now-foot");
+
+  if (ni < 0){
+    lab.textContent = "Поездка закончилась";
+    ttl.textContent = "С возвращением";
+    whn.textContent = "18 сентября 2026, Шереметьево";
+    cd.hidden = true;
+    rail.style.width = "100%";
+    railOuter.setAttribute("aria-valuenow", "100");
+    foot.textContent = "Все шаги пройдены.";
+  } else {
+    var e = evs[ni];
+    var mins = Math.floor((e.at.getTime() - now) / 60000);
+    cd.hidden = false;
+    lab.textContent = now < DEPART ? "До вылета" : "Сейчас в поездке";
+    ttl.textContent = e.d;
+    whn.textContent = fmtFull.format(e.at) + " · " + e.n;
+    document.getElementById("cd-d").textContent = Math.floor(mins / 1440);
+    document.getElementById("cd-h").textContent = p2(Math.floor(mins / 60) % 24);
+    document.getElementById("cd-m").textContent = p2(mins % 60);
+
+    var prog = now < DEPART ? 0 : Math.min(1, (now - DEPART) / (HOME - DEPART));
+    rail.style.width = (prog * 100).toFixed(1) + "%";
+    railOuter.setAttribute("aria-valuenow", Math.round(prog * 100));
+
+    if (now >= DEPART && now <= HOME){
+      foot.textContent = "Осталось дней поездки: " + Math.ceil((HOME - now) / 86400000)
+                       + ". Египет и Москва — одно время.";
+    }
+  }
+
+  renderTimeline(ni);
+
+  if (now > DEPART){
+    var bo = document.getElementById("badge-out");
+    bo.className = "badge mute"; bo.textContent = "Позади";
+  }
+  if (now > DEPART && now < evs[11].at.getTime()){
+    document.getElementById("badge-back").className = "badge sea";
+  }
+}
+
+/* ---------- чек-лист ---------- */
+var KEY = "alamein2026.checklist";
+var state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (err){ state = {}; }
+
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (err){} }
+
+function updateCount(){
+  var done = 0;
+  for (var i = 0; i < CHK.length; i++){ if (state[CHK[i][0]]) done++; }
+  document.getElementById("chk-count").textContent = done + " / " + CHK.length;
+}
+
+function renderChk(){
+  document.getElementById("chk").innerHTML = CHK.map(function(c, i){
+    var id = "chk-" + c[0];
+    return '<li><label for="' + id + '">'
+         +   '<input type="checkbox" id="' + id + '" data-k="' + c[0] + '"' + (state[c[0]] ? " checked" : "") + ">"
+         +   '<span class="txt"><span class="ttl">' + c[1] + '</span><span class="sub">' + c[2] + "</span></span>"
+         + "</label></li>";
+  }).join("");
+  updateCount();
+}
+
+document.getElementById("chk").addEventListener("change", function(ev){
+  var k = ev.target.getAttribute("data-k");
+  if (!k) return;
+  state[k] = ev.target.checked;
+  save();
+  updateCount();
+});
+
+document.getElementById("chk-reset").addEventListener("click", function(){
+  state = {};
+  save();
+  renderChk();
+});
+
+(function themeColor(){
+  var m = document.createElement("meta");
+  m.name = "theme-color";
+  m.content = getComputedStyle(document.documentElement).getPropertyValue("--ground").trim() || "#F1F3F0";
+  document.head.appendChild(m);
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    var sync = function(){ m.content = getComputedStyle(document.documentElement).getPropertyValue("--ground").trim(); };
+    if (mq.addEventListener) mq.addEventListener("change", sync);
+  }
+})();
+
+(function icsLocal(){
+  // Страница, открытая как локальный файл, не имеет рядом .ics — собираем его из встроенной копии
+  var btn = document.getElementById("ics-btn");
+  var data = document.getElementById("ics-data");
+  if (!btn || !data) return;
+  var text = data.textContent.trim();
+  if (text.indexOf("BEGIN:VCALENDAR") !== 0) return;
+  if (location.protocol !== "file:") return;
+  try {
+    var blob = new Blob([text], { type: "text/calendar;charset=utf-8" });
+    btn.href = URL.createObjectURL(blob);
+  } catch (err) {}
+})();
+
+(function navSpy(){
+  var links = [].slice.call(document.querySelectorAll(".nav-row a[href^='#']"));
+  var map = {};
+  var targets = [];
+  links.forEach(function(a){
+    var el = document.querySelector(a.getAttribute("href"));
+    if (el){ map[el.id] = a; targets.push(el); }
+  });
+  if (!targets.length || !("IntersectionObserver" in window)) return;
+
+  var visible = {};
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ visible[e.target.id] = e.isIntersecting; });
+    for (var i = 0; i < targets.length; i++){
+      if (visible[targets[i].id]){
+        links.forEach(function(a){ a.classList.remove("on"); a.removeAttribute("aria-current"); });
+        map[targets[i].id].classList.add("on");
+        map[targets[i].id].setAttribute("aria-current", "true");
+        break;
+      }
+    }
+  }, { rootMargin: "-10% 0px -70% 0px", threshold: 0 });
+
+  targets.forEach(function(t){ io.observe(t); });
+})();
+
+renderChk();
+tick();
+setInterval(tick, 20000);
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function(){
+    navigator.serviceWorker.register("sw.js").catch(function(){});
+  });
+}
+</script>
+
+</body>
+</html>
