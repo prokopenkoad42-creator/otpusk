@@ -1,5 +1,5 @@
 /* Кэширует страницу и шрифты при первом открытии — дальше работает без сети. */
-var CACHE = "alamein-2026-v2";
+var CACHE = "alamein-2026-v3";
 var SHELL = [
   "./",
   "./index.html",
@@ -32,6 +32,19 @@ self.addEventListener("activate", function(e){
 self.addEventListener("fetch", function(e){
   var req = e.request;
   if (req.method !== "GET") return;
+
+  // Статус рейса всегда тянем из сети: закэшированный намертво, он показал бы
+  // вчерашнюю картину. Кэш тут только запасной вариант на случай без сети.
+  if (req.url.indexOf("status.json") !== -1) {
+    e.respondWith(
+      fetch(req).then(function(res){
+        var copy = res.clone();
+        caches.open(CACHE).then(function(c){ c.put(req, copy); });
+        return res;
+      }).catch(function(){ return caches.match(req); })
+    );
+    return;
+  }
   e.respondWith(
     caches.match(req).then(function(hit){
       if (hit) return hit;
