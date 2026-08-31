@@ -1,0 +1,39 @@
+{
+  "updated": "2026-08-31T22:12:04.941357+00:00",
+  "flights": {
+    "out": {
+      "id": "out",
+      "number": "NE 407",
+      "airline": "Nesma Airlines",
+      "title": "Москва → Эль-Аламейн",
+      "status": "ontime",
+      "statusText": "По расписанию, вылет в 19:35",
+      "delayMinutes": 0,
+      "departure": {
+        "iata": "VKO",
+        "name": "Внуково",
+        "scheduled": "2026-09-07T19:35:00+03:00",
+        "expected": "2026-09-07T16:35:00+00:00",
+        "actual": null,
+        "terminal": "A",
+        "gate": null,
+        "checkin": null
+      },
+      "arrival": {
+        "iata": "DBB",
+        "name": "Эль-Дабаа",
+        "scheduled": "2026-09-08T00:45:00+03:00",
+        "expected": "2026-09-07T21:45:00+00:00",
+        "actual": null,
+        "predicted": "2026-09-07T20:59:00+00:00",
+        "terminal": null,
+        "baggage": null
+      },
+      "aircraft": "Airbus A321",
+      "live": null,
+      "sources": [
+        "aerodatabox"
+      ]
+    }
+  }
+}
