@@ -92,7 +92,9 @@ DTSTART:20260908T050000Z
 DTEND:20260908T060000Z
 SUMMARY:Заселение в Rixos Premium Alamein 5*
 DESCRIPTION:Ваучер 6143948. Studio / DBL, Ultra All Inclusive. Вы
- езд 17.09.
+ езд 17.09.\nГид Мохамед Шауки: +201066645312, +2012283
+ 44368, +201017188995.\nГид Моханад Халед: +201152014544, 
+ +201017188663.
 LOCATION:Rixos Premium Alamein\, Эль-Аламейн\, Египет
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -108,7 +110,8 @@ DTEND:20260916T092000Z
 SUMMARY:Спросить у гида время обратного тра
  нсфера
 DESCRIPTION:Гид называет время за сутки до вы
- лета. Вылет SM 949 — 17.09 в 23:40.
+ лета. Вылет SM 949 — 17.09 в 23:40.\nМохамед Шаук
+ и: +201066645312.\nМоханад Халед: +201152014544.
 LOCATION:Rixos Premium Alamein
 BEGIN:VALARM
 ACTION:DISPLAY

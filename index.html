@@ -358,6 +358,25 @@ section{margin-bottom:36px;scroll-margin-top:66px}
   white-space:nowrap;flex:0 0 auto;display:flex;align-items:center;gap:7px;font-variant-numeric:tabular-nums;
 }
 
+
+/* ---------- ГИДЫ В ОТЕЛЕ ---------- */
+.guides{display:flex;flex-direction:column;gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.guide{background:var(--surface);padding:14px 17px}
+.g-name{font-size:14.5px;font-weight:600;letter-spacing:-.005em}
+.g-full{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--ink-3);
+  margin-top:3px;letter-spacing:.03em;text-transform:uppercase}
+.g-nums{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+.g-nums a{
+  display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 13px;
+  border:1px solid var(--line);border-radius:999px;background:var(--sunken);
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;font-variant-numeric:tabular-nums;
+  color:var(--sea-ink);text-decoration:none;white-space:nowrap;
+  transition:background .15s ease,border-color .15s ease;
+}
+.g-nums a:hover{border-color:var(--sea)}
+.g-nums a:active{background:var(--sea);border-color:var(--sea);color:var(--on-sea)}
+
 /* ---------- ЗАМЕТКА ---------- */
 .note-box{
   display:flex;gap:12px;align-items:flex-start;
@@ -801,6 +820,33 @@ footer{
 
 <section id="calls">
   <div class="sec-h"><h2>Кому звонить</h2><span class="lab">На месте</span></div>
+
+  <h3 class="lab" style="color:var(--ink-3);margin:22px 0 10px">Гид в отеле</h3>
+  <div class="guides">
+    <div class="guide">
+      <div class="g-name">Мохамед Шауки</div>
+      <div class="g-full">Mohamed Shawki Amin Abdel Fattah</div>
+      <div class="g-nums">
+        <a href="tel:+201066645312"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>+20 106 664-5312</a>
+        <a href="tel:+201228344368"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>+20 122 834-4368</a>
+        <a href="tel:+201017188995"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>+20 101 718-8995</a>
+      </div>
+    </div>
+    <div class="guide">
+      <div class="g-name">Моханад Халед</div>
+      <div class="g-full">Mohanad Khaled Mahmoud Taha Mohamed</div>
+      <div class="g-nums">
+        <a href="tel:+201152014544"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>+20 115 201-4544</a>
+        <a href="tel:+201017188663"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.4 2.6h2.5l1.2 3-1.5 1.1a8.4 8.4 0 003.7 3.7l1.1-1.5 3 1.2v2.5a1 1 0 01-1.1 1A11.5 11.5 0 012.4 3.7a1 1 0 011-1.1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>+20 101 718-8663</a>
+      </div>
+    </div>
+  </div>
+  <div class="note-box sea" style="margin-top:13px">
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.6" stroke="currentColor" stroke-width="1.3"/><path d="M8 4.6v4.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.3" r=".9" fill="currentColor"/></svg>
+    <div>Номера записаны в международном формате: из роуминга местная запись вида <b>01152014544</b> не наберётся. В WhatsApp гидам <b>писать можно</b>, а вот звонить через него в Египте не выйдет — операторы режут звонки в мессенджерах. Звоните обычным вызовом.</div>
+  </div>
+
+  <h3 class="lab" style="color:var(--ink-3);margin:24px 0 10px">Операторы и агентство</h3>
   <div class="calls">
     <a href="tel:+908505490707">
       <span><span class="who">Anex Tourism Worldwide</span><span class="why">Принимающая сторона, встреча в аэропорту</span></span>
@@ -950,7 +996,9 @@ DTSTART:20260908T050000Z
 DTEND:20260908T060000Z
 SUMMARY:Заселение в Rixos Premium Alamein 5*
 DESCRIPTION:Ваучер 6143948. Studio / DBL, Ultra All Inclusive. Вы
- езд 17.09.
+ езд 17.09.\nГид Мохамед Шауки: +201066645312, +2012283
+ 44368, +201017188995.\nГид Моханад Халед: +201152014544, 
+ +201017188663.
 LOCATION:Rixos Premium Alamein\, Эль-Аламейн\, Египет
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -966,7 +1014,8 @@ DTEND:20260916T092000Z
 SUMMARY:Спросить у гида время обратного тра
  нсфера
 DESCRIPTION:Гид называет время за сутки до вы
- лета. Вылет SM 949 — 17.09 в 23:40.
+ лета. Вылет SM 949 — 17.09 в 23:40.\nМохамед Шаук
+ и: +201066645312.\nМоханад Халед: +201152014544.
 LOCATION:Rixos Premium Alamein
 BEGIN:VALARM
 ACTION:DISPLAY
