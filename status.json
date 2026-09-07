@@ -1,13 +1,13 @@
 {
-  "updated": "2026-09-07T22:09:46.599197+00:00",
+  "updated": "2026-09-07T22:15:16.601439+00:00",
   "flights": {
     "out": {
       "id": "out",
       "number": "NE 407",
       "airline": "Nesma Airlines",
       "title": "Москва → Эль-Аламейн",
-      "status": "airborne",
-      "statusText": "В воздухе",
+      "status": "arrived",
+      "statusText": "Приземлился",
       "delayMinutes": 0,
       "departure": {
         "iata": "VKO",
@@ -31,17 +31,8 @@
         "baggage": null
       },
       "aircraft": "",
-      "live": {
-        "lat": 32.6818,
-        "lon": 27.9976,
-        "altitude": 10728.96,
-        "speed": 248.12,
-        "heading": 156.41,
-        "seen": "2026-09-07T22:07:40+00:00"
-      },
-      "sources": [
-        "opensky"
-      ]
+      "live": null,
+      "sources": []
     },
     "back": {
       "id": "back",
