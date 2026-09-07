@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07T15:02:14.621677+00:00",
+  "updated": "2026-09-07T15:07:17.808237+00:00",
   "flights": {
     "out": {
       "id": "out",
@@ -17,7 +17,7 @@
         "actual": null,
         "terminal": "A",
         "gate": "30",
-        "checkin": "7678"
+        "checkin": "76"
       },
       "checkinOpens": "2026-09-07T16:05:00+03:00",
       "arrival": {
