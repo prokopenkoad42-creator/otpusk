@@ -1,13 +1,13 @@
 {
-  "updated": "2026-09-07T23:45:46.589345+00:00",
+  "updated": "2026-09-07T23:51:16.597775+00:00",
   "flights": {
     "out": {
       "id": "out",
       "number": "NE 407",
       "airline": "Nesma Airlines",
       "title": "Москва → Эль-Аламейн",
-      "status": "arrived",
-      "statusText": "Приземлился",
+      "status": "airborne",
+      "statusText": "В воздухе",
       "delayMinutes": 96,
       "departure": {
         "iata": "VKO",
