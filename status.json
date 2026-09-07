@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07T16:25:14.103134+00:00",
+  "updated": "2026-09-07T16:30:36.600412+00:00",
   "flights": {
     "out": {
       "id": "out",
@@ -8,12 +8,12 @@
       "title": "Москва → Эль-Аламейн",
       "status": "boarding",
       "statusText": "Идёт посадка",
-      "delayMinutes": 15,
+      "delayMinutes": 40,
       "departure": {
         "iata": "VKO",
         "name": "Внуково",
         "scheduled": "2026-09-07T19:35:00+03:00",
-        "expected": "2026-09-07T16:50:00+00:00",
+        "expected": "2026-09-07T17:15:00+00:00",
         "actual": null,
         "terminal": "A",
         "gate": "30",
@@ -26,7 +26,7 @@
         "scheduled": "2026-09-08T00:45:00+03:00",
         "expected": "2026-09-07T21:45:00+00:00",
         "actual": null,
-        "predicted": "2026-09-07T21:14:00+00:00",
+        "predicted": "2026-09-07T21:39:00+00:00",
         "terminal": null,
         "baggage": null
       },
