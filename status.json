@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07T19:10:49.799655+00:00",
+  "updated": "2026-09-07T19:15:55.422494+00:00",
   "flights": {
     "out": {
       "id": "out",
@@ -7,7 +7,7 @@
       "airline": "Nesma Airlines",
       "title": "Москва → Эль-Аламейн",
       "status": "airborne",
-      "statusText": "В воздухе, посадка через 3 ч 24 мин",
+      "statusText": "В воздухе, посадка через 3 ч 19 мин",
       "delayMinutes": 96,
       "departure": {
         "iata": "VKO",
