@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07T19:21:11.486868+00:00",
+  "updated": "2026-09-07T19:26:36.603383+00:00",
   "flights": {
     "out": {
       "id": "out",
@@ -7,7 +7,7 @@
       "airline": "Nesma Airlines",
       "title": "Москва → Эль-Аламейн",
       "status": "airborne",
-      "statusText": "В воздухе, посадка через 3 ч 14 мин",
+      "statusText": "В воздухе, посадка через 3 ч 08 мин",
       "delayMinutes": 96,
       "departure": {
         "iata": "VKO",
@@ -30,7 +30,7 @@
         "terminal": null,
         "baggage": null
       },
-      "aircraft": "Airbus A321",
+      "aircraft": "Airbus A321 · SU-NMN",
       "live": null,
       "sources": [
         "aerodatabox"
