@@ -1,19 +1,19 @@
 {
-  "updated": "2026-09-07T17:17:36.614639+00:00",
+  "updated": "2026-09-07T17:22:38.591489+00:00",
   "flights": {
     "out": {
       "id": "out",
       "number": "NE 407",
       "airline": "Nesma Airlines",
       "title": "Москва → Эль-Аламейн",
-      "status": "boarding",
-      "statusText": "Идёт посадка",
-      "delayMinutes": 40,
+      "status": "delayed",
+      "statusText": "Задержка 45 мин, вылет в 20:20",
+      "delayMinutes": 45,
       "departure": {
         "iata": "VKO",
         "name": "Внуково",
         "scheduled": "2026-09-07T19:35:00+03:00",
-        "expected": "2026-09-07T17:15:00+00:00",
+        "expected": "2026-09-07T17:20:00+00:00",
         "actual": null,
         "terminal": "A",
         "gate": "30",
@@ -26,7 +26,7 @@
         "scheduled": "2026-09-08T00:45:00+03:00",
         "expected": "2026-09-07T21:45:00+00:00",
         "actual": null,
-        "predicted": "2026-09-07T21:39:00+00:00",
+        "predicted": "2026-09-07T21:44:00+00:00",
         "terminal": null,
         "baggage": null
       },
