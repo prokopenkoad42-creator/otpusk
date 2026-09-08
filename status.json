@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T00:38:58.766181+00:00",
+  "updated": "2026-09-08T00:44:26.599657+00:00",
   "flights": {
     "out": {
       "id": "out",
@@ -8,31 +8,33 @@
       "title": "Москва → Эль-Аламейн",
       "status": "arrived",
       "statusText": "Приземлился",
-      "delayMinutes": 0,
+      "delayMinutes": 96,
       "departure": {
         "iata": "VKO",
         "name": "Внуково",
         "scheduled": "2026-09-07T19:35:00+03:00",
-        "expected": "2026-09-07T19:35:00+03:00",
+        "expected": "2026-09-07T18:11:00+00:00",
         "actual": null,
         "terminal": "A",
-        "gate": null,
-        "checkin": null
+        "gate": "30",
+        "checkin": "77"
       },
       "checkinOpens": "2026-09-07T16:05:00+03:00",
       "arrival": {
         "iata": "DBB",
         "name": "Эль-Дабаа",
         "scheduled": "2026-09-08T00:45:00+03:00",
-        "expected": "2026-09-08T00:45:00+03:00",
+        "expected": "2026-09-07T22:35:00+00:00",
         "actual": null,
-        "predicted": null,
+        "predicted": "2026-09-07T22:35:00+00:00",
         "terminal": null,
         "baggage": null
       },
-      "aircraft": "",
+      "aircraft": "Airbus A321 · SU-NMN",
       "live": null,
-      "sources": []
+      "sources": [
+        "aerodatabox"
+      ]
     },
     "back": {
       "id": "back",
