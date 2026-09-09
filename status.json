@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-08T08:59:12.536769+00:00",
+  "updated": "2026-09-09T05:00:46.592158+00:00",
   "flights": {
     "out": {
       "id": "out",
@@ -59,9 +59,9 @@
         "iata": "SVO",
         "name": "Шереметьево",
         "scheduled": "2026-09-18T04:50:00+03:00",
-        "expected": "2026-09-18T04:50:00+03:00",
+        "expected": "2026-09-18T01:15:00+00:00",
         "actual": null,
-        "predicted": null,
+        "predicted": "2026-09-18T01:41:00+00:00",
         "terminal": "C",
         "baggage": null
       },
