@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-17T19:57:16.597704+00:00",
+  "updated": "2026-09-17T20:02:20.102198+00:00",
   "flights": {
     "out": {
       "id": "out",
@@ -63,7 +63,7 @@
         "actual": null,
         "predicted": "2026-09-18T01:41:00+00:00",
         "terminal": "C",
-        "baggage": null
+        "baggage": "4"
       },
       "aircraft": "Airbus A320",
       "live": null,
