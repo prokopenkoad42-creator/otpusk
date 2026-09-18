@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18T03:16:32.071865+00:00",
+  "updated": "2026-09-18T03:21:38.344305+00:00",
   "flights": {
     "out": {
       "id": "out",
@@ -41,14 +41,14 @@
       "number": "SM 949",
       "airline": "Air Cairo",
       "title": "Эль-Аламейн → Москва",
-      "status": "unknown",
-      "statusText": "Данных пока нет",
-      "delayMinutes": 0,
+      "status": "ontime",
+      "statusText": "По расписанию, вылет в 23:05",
+      "delayMinutes": -35,
       "departure": {
         "iata": "DBB",
         "name": "Эль-Дабаа",
         "scheduled": "2026-09-17T23:40:00+03:00",
-        "expected": "2026-09-17T23:40:00+03:00",
+        "expected": "2026-09-17T20:05:00+00:00",
         "actual": null,
         "terminal": null,
         "gate": null,
@@ -59,15 +59,17 @@
         "iata": "SVO",
         "name": "Шереметьево",
         "scheduled": "2026-09-18T04:50:00+03:00",
-        "expected": "2026-09-18T04:50:00+03:00",
+        "expected": "2026-09-18T01:15:00+00:00",
         "actual": null,
-        "predicted": null,
+        "predicted": "2026-09-18T01:41:00+00:00",
         "terminal": "C",
-        "baggage": null
+        "baggage": "4"
       },
-      "aircraft": "",
+      "aircraft": "Airbus A320",
       "live": null,
-      "sources": []
+      "sources": [
+        "aerodatabox"
+      ]
     }
   }
 }
